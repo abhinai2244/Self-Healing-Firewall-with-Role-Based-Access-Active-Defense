@@ -1,0 +1,8 @@
+flask
+flask-login
+jinja2
+python-iptables
+pyyaml
+watchdog
+psutil
+requests

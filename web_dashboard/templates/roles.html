@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+{% block content %}
+<h2>Role Management</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>IP Address</th>
+            <th>Username</th>
+            <th>Current Role</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ip, data in roles.items() %}
+        <tr>
+            <td>{{ ip }}</td>
+            <td>{{ data.username }}</td>
+            <td><span class="badge bg-primary">{{ data.role }}</span></td>
+            <td>
+                <form action="/update_role" method="POST" class="d-flex gap-2">
+                    <input type="hidden" name="ip" value="{{ ip }}">
+                    <select name="role" class="form-select form-select-sm">
+                        <option value="admin" {% if data.role == 'admin' %}selected{% endif %}>Admin</option>
+                        <option value="employee" {% if data.role == 'employee' %}selected{% endif %}>Employee</option>
+                        <option value="guest" {% if data.role == 'guest' %}selected{% endif %}>Guest</option>
+                        <option value="isolated" {% if data.role == 'isolated' %}selected{% endif %}>Isolated</option>
+                    </select>
+                    <button type="submit" class="btn btn-sm btn-secondary">Update</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

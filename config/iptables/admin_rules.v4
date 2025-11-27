@@ -1,0 +1,5 @@
+# Admin Rules: Full Access
+*filter
+:INPUT ACCEPT [0:0]
+-A INPUT -j ACCEPT
+COMMIT
