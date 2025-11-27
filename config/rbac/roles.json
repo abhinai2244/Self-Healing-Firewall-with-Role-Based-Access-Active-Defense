@@ -1,0 +1,17 @@
+{
+  "192.168.1.10": {
+    "role": "admin",
+    "username": "alice",
+    "mac": "00:11:22:33:44:AA"
+  },
+  "192.168.1.20": {
+    "role": "employee",
+    "username": "bob",
+    "mac": "00:11:22:33:44:BB"
+  },
+  "192.168.1.30": {
+    "role": "guest",
+    "username": "charlie",
+    "mac": "00:11:22:33:44:CC"
+  }
+}

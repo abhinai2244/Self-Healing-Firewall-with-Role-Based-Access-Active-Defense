@@ -1,0 +1,2 @@
+alert tcp any any -> any 80 (msg:"Malware Download"; content:"malware"; sid:1000001;)
+alert tcp any any -> any any (msg:"Suspicious Activity"; sid:1000002;)

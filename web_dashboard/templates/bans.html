@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+{% block content %}
+<h2>Active Bans / Isolated Users</h2>
+{% if bans %}
+<table class="table table-danger">
+    <thead>
+        <tr>
+            <th>IP Address</th>
+            <th>Username</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ip, data in bans.items() %}
+        <tr>
+            <td>{{ ip }}</td>
+            <td>{{ data.username }}</td>
+            <td>
+                 <form action="/update_role" method="POST">
+                    <input type="hidden" name="ip" value="{{ ip }}">
+                    <input type="hidden" name="role" value="guest">
+                    <button type="submit" class="btn btn-sm btn-success">Restore to Guest</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-success">No active bans.</div>
+{% endif %}
+{% endblock %}
